@@ -1,0 +1,65 @@
+html {
+    /* BOX-SIZING: allows us to include the padding and border in an element's total width and height */
+    box-sizing: border-box; /* resetting the box model; padding and border are included in the width and height */
+}
+
+body {
+    font-family: sans-serif;
+    color: #0a0a23;
+}
+
+/* selects any span element whose class includes sr-only */
+span[class~="sr-only"] {
+    border: 0;
+    clip: rect(1px,1px,1px,1px);    /* used to define the visible portions of an element */
+    /* forms the clip-path into a rectangle within the element */
+    clip-path: inset(50%);  /* determines the shape the CLIP property should take */
+    -webkit-clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    /* prevents the text content fromm overflowing */
+    overflow: hidden;
+    white-space: nowrap;
+    /* ensures that not only are they no longer visible, but they are not even within the page view */
+    position: absolute;
+    padding: 0;
+    margin: -1px;
+}
+
+h1 {
+    max-width: 37.25rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+}
+
+h1 .flex {
+    display: flex;  /* enables flexbox layout */
+    flex-direction: column-reverse; /* this will display the nested elements from bottom to top */
+    gap: 1rem;  /* create spaces bet. the elements */
+}
+
+/* :first-of-type: used to target the first element that matches the selector; targets the first span element in .flex container (AcmeWidgetCorp) */
+/* remember that the span elements are reversed, visually, so this will appear to be the second element on the page */
+h1 .flex span:first-of-type {
+    font-size: 0.7em;
+}
+
+/* :last-of-type: targets the last element that matches the selector; targets the last span in the flex container (Balance Sheet) */
+h1 .flex span:last-of-type {
+    font-size: 1.2em;
+}
+
+section {
+    max-width: 40rem;   /* for responsive design */
+    margin: 0 auto; /* center */
+    border: 2px solid #d0d0d5;
+}
+
+#years {
+    display: flex;
+    justify-content: flex-end;  /* justify content to the end of the flex direction */
+    position: sticky;   /* makes element sticky */
+    top: 0; /* fixed to the top of its container */
+    background-color: #0a0a23;
+    color: #fff;
+}
